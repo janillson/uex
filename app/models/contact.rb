@@ -1,7 +1,7 @@
 class Contact < ApplicationRecord
   belongs_to :account
 
-  validates :name, :cpf, presence: true
+  validates :name, :cpf, :phone, :street, :city_name, :state, :zipcode, presence: true
   validates :cpf, uniqueness: { scope: :account_id }
 
   def full_address
