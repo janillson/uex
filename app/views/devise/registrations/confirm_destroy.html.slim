@@ -1,0 +1,11 @@
+= turbo_frame_tag :modal do
+  .modal.fade[tabindex="-1" aria-labelledby="exemploModalLabel" aria-hidden="true" data-controller="modal"]
+    .modal-dialog
+      .modal-content
+        .modal-header
+          .modal-title Delete account
+          button[type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"]
+        .modal-body Are you sure you want to delete this account?
+        .modal-footer
+          = button_tag "Cancel", type: "button", class: "btn btn-secondary", data: { bs_dismiss: "modal" }
+          = button_to "Delete", account_registration_path, method: :delete, class: "btn btn-danger", data: { turbo: false }
