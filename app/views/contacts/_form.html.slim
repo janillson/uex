@@ -1,16 +1,16 @@
-= bootstrap_form_for(contact, data: { turbo_frame: :contacts, turbo_action: :advance }) do |form|
+= bootstrap_form_for(contact, data: { turbo_frame: :contacts, turbo_action: :advance, controller: 'mask' }) do |form|
   = render "devise/shared/error_messages", resource: contact
 
   = form.text_field :name
-  = form.text_field :cpf
-  = form.text_field :phone
+  = form.text_field :cpf, data: { mask_type: 'cpf' }
+  = form.text_field :phone, data: { mask_type: 'phone' }
   br
-  = form.text_field :zipcode
+  = form.text_field :zipcode, data: { mask_type: 'zipcode' }
   = form.text_field :street
   = form.text_field :number
   = form.text_field :complement
   = form.text_field :city_name
-  = form.text_field :state
+  = form.text_field :state, data: { mask_type: 'uf' }
 
   = form.text_field :latitude
   = form.text_field :longitude
