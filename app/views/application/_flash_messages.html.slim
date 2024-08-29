@@ -1,4 +1,6 @@
 - if flash.count > 0
   - flash.each do |key, value|
-    if key == 'alert'
+    - if key == 'alert'
       .alert.alert-danger[role="alert"] = value
+    - elsif key == 'notice'
+      .alert.alert-info[role="alert"] = value
