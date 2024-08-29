@@ -8,7 +8,7 @@
       dd.list-group-item.text-muted = "***.#{@contact.cpf[3..5]}.#{@contact.cpf[6..8]}-**"
 
       dt = Contact.human_attribute_name(:phone)
-      dd.list-group-item.text-muted = @contact.phone
+      dd.list-group-item.text-muted = @contact.phone_formatted
 
       dt = Contact.human_attribute_name(:street)
       dd.list-group-item.text-muted = @contact.street

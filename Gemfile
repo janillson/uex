@@ -54,6 +54,9 @@ gem "slim", "~> 5.2"
 # gem "image_processing", "~> 1.2"
 
 gem "devise", "~> 4.9"
+gem "cpf_cnpj", "~> 0.5.0"
+gem "validators", "~> 3.4"
+gem "phonelib", "~> 0.9.1"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
