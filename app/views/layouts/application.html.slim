@@ -10,4 +10,8 @@ html
     = javascript_include_tag "application", "data-turbo-track": "reload", type: "module"
 
   body.container-fluid
+    = render 'application/navbar'
+
     = yield
+
+    = render 'application/modal'

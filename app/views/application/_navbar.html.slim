@@ -1,0 +1,24 @@
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  .container-fluid
+    a.navbar-brand[href="/"]
+      = image_tag "uex.png", alt: "Uex", width: "60"
+    .float-end
+      .collapse.navbar-collapse#navbarNavDropdown
+        ul.navbar-nav
+          li.nav-item.dropdown
+            a.nav-link.dropdown-toggle[href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"]
+              = current_account.email
+            ul.dropdown-menu
+              li
+                button.dropdown-item[type="button" data-bs-toggle="modal" data-bs-target="#exemploModal"]
+                  | Delete account
+
+                  - content_for :modal_title, "Delete account"
+                  - content_for :modal_body, "Are you sure you want to delete your account?"
+                  - content_for :modal_footer do
+                    button type="button" class="btn btn-secondary" data-bs-dismiss="modal" Close
+                    = form_for(Account.new, url: account_registration_path, method: :delete) do
+                      = button_tag "Ok", type: "submit", class: "btn btn-primary"
+              li
+                = form_for(Account.new, url: destroy_account_session_path, method: :delete) do
+                  = button_tag "Sign out", type: "submit", class: "dropdown-item"

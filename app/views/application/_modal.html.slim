@@ -1,0 +1,11 @@
+div class="modal fade" id="exemploModal" tabindex="-1" aria-labelledby="exemploModalLabel" aria-hidden="true"
+  div class="modal-dialog"
+    div class="modal-content"
+      div class="modal-header"
+        h5 class="modal-title" id="exemploModalLabel"
+          = yield :modal_title
+        button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+      .modal-body
+        = yield :modal_body
+      .modal-footer
+        = yield :modal_footer
