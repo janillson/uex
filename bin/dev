@@ -8,4 +8,8 @@ fi
 # Default to port 3000 if not specified
 export PORT="${PORT:-3000}"
 
-exec foreman start -f Procfile.dev --env /dev/null "$@"
+if command -v overmind &> /dev/null; then
+  exec overmind start -f Procfile.dev "$@"
+else
+  exec foreman start -f Procfile.dev "$@"
+fi
