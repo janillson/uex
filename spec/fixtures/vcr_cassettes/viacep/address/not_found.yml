@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://viacep.com.br/ws/SP/Sao%20Paulo/Rua%20inexistente/json/
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Connection:
+      - close
+      Host:
+      - viacep.com.br
+      User-Agent:
+      - http.rb/5.2.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.22.0
+      Date:
+      - Thu, 29 Aug 2024 21:35:28 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET
+      Access-Control-Allow-Headers:
+      - Content-Type, X-Request-With, X-Requested-By
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '86400'
+      Expires:
+      - Thu, 29 Aug 2024 22:35:28 GMT
+      Cache-Control:
+      - max-age=3600
+      - public
+      Pragma:
+      - public
+    body:
+      encoding: UTF-8
+      string: "[]"
+  recorded_at: Thu, 29 Aug 2024 21:35:29 GMT
+recorded_with: VCR 6.3.1

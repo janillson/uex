@@ -1,0 +1,119 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://viacep.com.br/ws/SP/Sao%20Paulo/Pra%C3%A7a%20da%20Se/json/
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Connection:
+      - close
+      Host:
+      - viacep.com.br
+      User-Agent:
+      - http.rb/5.2.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.22.0
+      Date:
+      - Thu, 29 Aug 2024 21:09:11 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET
+      Access-Control-Allow-Headers:
+      - Content-Type, X-Request-With, X-Requested-By
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '86400'
+      Expires:
+      - Thu, 29 Aug 2024 22:09:11 GMT
+      Cache-Control:
+      - max-age=3600
+      - public
+      Pragma:
+      - public
+    body:
+      encoding: UTF-8
+      string: |-
+        [
+          {
+            "cep": "01001-000",
+            "logradouro": "Praça da Sé",
+            "complemento": "lado ímpar",
+            "unidade": "",
+            "bairro": "Sé",
+            "localidade": "São Paulo",
+            "uf": "SP",
+            "ibge": "3550308",
+            "gia": "1004",
+            "ddd": "11",
+            "siafi": "7107"
+          },
+          {
+            "cep": "01001-901",
+            "logradouro": "Praça da Sé",
+            "complemento": "371",
+            "unidade": "Edifício Santa Lídia",
+            "bairro": "Sé",
+            "localidade": "São Paulo",
+            "uf": "SP",
+            "ibge": "3550308",
+            "gia": "1004",
+            "ddd": "11",
+            "siafi": "7107"
+          },
+          {
+            "cep": "01001-900",
+            "logradouro": "Praça da Sé",
+            "complemento": "108",
+            "unidade": "UNESP - Universidade Estadual Júlio de Mesquita Filho",
+            "bairro": "Sé",
+            "localidade": "São Paulo",
+            "uf": "SP",
+            "ibge": "3550308",
+            "gia": "1004",
+            "ddd": "11",
+            "siafi": "7107"
+          },
+          {
+            "cep": "01001-902",
+            "logradouro": "Praça da Sé",
+            "complemento": "385",
+            "unidade": "OAB - Ordem dos Advogados do Brasil.",
+            "bairro": "Sé",
+            "localidade": "São Paulo",
+            "uf": "SP",
+            "ibge": "3550308",
+            "gia": "1004",
+            "ddd": "11",
+            "siafi": "7107"
+          },
+          {
+            "cep": "01001-001",
+            "logradouro": "Praça da Sé",
+            "complemento": "lado par",
+            "unidade": "",
+            "bairro": "Sé",
+            "localidade": "São Paulo",
+            "uf": "SP",
+            "ibge": "3550308",
+            "gia": "1004",
+            "ddd": "11",
+            "siafi": "7107"
+          }
+        ]
+  recorded_at: Thu, 29 Aug 2024 21:09:11 GMT
+recorded_with: VCR 6.3.1
