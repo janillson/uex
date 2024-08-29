@@ -1,0 +1,11 @@
+- if contact.persisted?
+  .list-group-item[id=dom_id(contact)]
+    h5.list-group-item-heading = contact.name
+
+    p.list-group-item-text
+      | Address: #{contact.full_address}
+
+    .float-end.d-flex
+      = link_to "Delete", confirm_destroy_contact_path(contact), class: "btn btn-danger mx-1", data: { turbo_frame: :modal }
+      = link_to "Edit", edit_contact_path(contact), class: "btn btn-primary mx-1", data: { turbo_frame: :contacts, turbo_action: :advance }
+      = link_to "Show", contact, class: "btn btn-primary mx-1", data: { turbo_frame: :contacts, turbo_action: :advance }

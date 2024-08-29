@@ -1,0 +1,28 @@
+h3
+  | Contacts
+  = link_to "New Contact", new_contact_path, class: "btn btn-primary m-3", data: { turbo_frame: :contacts, turbo_action: :advance  }
+
+= turbo_frame_tag :contacts do
+  = turbo_stream.replace :flash_messages
+    = render "flash_messages"
+
+  .row.vh-100
+    .col-md-3.overflow-auto[style="max-height: 800px;"]
+      - if @contacts.empty?
+        p No contacts found
+      - else
+        .list-group
+          = render @contacts
+
+
+    - if request.params[:action] == "new" || request.params[:action] == "edit" || request.params[:action] == "create" || request.params[:action] == "update"
+      .col-md-3.border.p-4.rounded.overflow-auto[style="max-height: 800px;"]
+        = link_to "", contacts_path, class: "btn-close float-end", data: { turbo_frame: :contacts, turbo_action: :advance }
+        br
+        = render "form", contact: @contact || Contact.new
+    - elsif request.params[:action] == "show"
+      .col-md-3
+        = render "show"
+
+    .col-md-6[style="max-height: 800px;"]
+      | MAP

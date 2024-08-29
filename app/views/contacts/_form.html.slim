@@ -1,0 +1,19 @@
+= bootstrap_form_for(contact, data: { turbo_frame: :contacts, turbo_action: :advance }) do |form|
+  = render "devise/shared/error_messages", resource: contact
+
+  = form.text_field :name
+  = form.text_field :cpf
+  = form.text_field :phone
+  br
+  = form.text_field :zipcode
+  = form.text_field :street
+  = form.text_field :number
+  = form.text_field :complement
+  = form.text_field :city_name
+  = form.text_field :state
+
+  = form.text_field :latitude
+  = form.text_field :longitude
+
+  .my-3
+    = form.submit

@@ -1,0 +1,27 @@
+.card
+  .card-header
+    = link_to "", contacts_path, class: "btn-close float-end mt-2", data: { turbo_frame: :contacts, turbo_action: :advance }
+    h1.text-truncate[style="max-width: 450px;"] = @contact.name
+  .card-body
+    dl.list-group.list-group-flush
+      dt = Contact.human_attribute_name(:cpf)
+      dd.list-group-item.text-muted = "***.#{@contact.cpf[3..5]}.#{@contact.cpf[6..8]}-**"
+
+      dt = Contact.human_attribute_name(:phone)
+      dd.list-group-item.text-muted = @contact.phone
+
+      dt = Contact.human_attribute_name(:street)
+      dd.list-group-item.text-muted = @contact.street
+
+      dt = Contact.human_attribute_name(:city_name)
+      dd.list-group-item.text-muted = @contact.city_name
+
+      dt = Contact.human_attribute_name(:state)
+      dd.list-group-item.text-muted = @contact.state
+
+      dt = Contact.human_attribute_name(:zipcode)
+      dd.list-group-item.text-muted = @contact.zipcode
+
+
+
+
