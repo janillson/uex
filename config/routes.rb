@@ -10,4 +10,8 @@ Rails.application.routes.draw do
   resources :contacts, only: %i[index show new create edit update destroy] do
     get :confirm_destroy, on: :member
   end
+
+  scope '/autocomplete' do
+    get :zipcode, to: 'autocomplete#zipcode', as: :zipcode
+  end
 end

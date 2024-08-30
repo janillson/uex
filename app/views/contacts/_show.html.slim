@@ -1,6 +1,6 @@
 .card
   .card-header
-    = link_to "", contacts_path, class: "btn-close float-end mt-2", data: { turbo_frame: :contacts, turbo_action: :advance }
+    = link_to "", root_path, class: "btn-close float-end mt-2", data: { turbo_frame: :contacts, turbo_action: :advance }
     h1.text-truncate[style="max-width: 450px;"] = @contact.name
   .card-body
     dl.list-group.list-group-flush

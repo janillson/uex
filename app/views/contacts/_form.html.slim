@@ -1,16 +1,17 @@
-= bootstrap_form_for(contact, data: { turbo_frame: :contacts, turbo_action: :advance, controller: 'mask' }) do |form|
+= bootstrap_form_for(contact, data: { turbo_frame: :contacts, turbo_action: :advance, controller: 'mask address-search', address_search_url: zipcode_path }) do |form|
   = render "devise/shared/error_messages", resource: contact
 
   = form.text_field :name
   = form.text_field :cpf, data: { mask_type: 'cpf' }
   = form.text_field :phone, data: { mask_type: 'phone' }
   br
-  = form.text_field :zipcode, data: { mask_type: 'zipcode' }
-  = form.text_field :street
+  = form.text_field :zipcode, data: { mask_type: 'zipcode', address_search_target: "zipcodeValue" }
+  = form.text_field :street, data: { address_search_target: "streetValue" }
   = form.text_field :number
   = form.text_field :complement
-  = form.text_field :city_name
-  = form.text_field :state, data: { mask_type: 'uf' }
+  = form.text_field :neighborhood, data: { address_search_target: "neighborhoodValue" }
+  = form.text_field :city_name, data: { address_search_target: "cityValue" }
+  = form.text_field :state, data: { mask_type: 'uf', address_search_target: "stateValue" }
 
   = form.text_field :latitude
   = form.text_field :longitude

@@ -7,6 +7,7 @@ FactoryBot.define do
     street { 'Rod. Régis Bittencourt' }
     number { '1000' }
     complement { 'Bloco 1, Apto 101' }
+    neighborhood { 'Jardim Maria Rosa' }
     city_name { 'Taboão da Serra' }
     state { 'SP' }
     zipcode { '06768-200' }
