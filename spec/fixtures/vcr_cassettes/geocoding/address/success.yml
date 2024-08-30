@@ -1,0 +1,82 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=Rua%20da%20Consolacao%20Sao%20Paulo&key=GOOGLE_API_KEY
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Connection:
+      - close
+      Host:
+      - maps.googleapis.com
+      User-Agent:
+      - http.rb/5.2.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Fri, 30 Aug 2024 02:09:36 GMT
+      Pragma:
+      - no-cache
+      Expires:
+      - Fri, 01 Jan 1990 00:00:00 GMT
+      Cache-Control:
+      - no-cache, must-revalidate
+      Vary:
+      - Accept-Language
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Goog-Maps-Metro-Area:
+      - Sao Paulo
+      Server:
+      - mafe
+      Content-Length:
+      - '2180'
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      Server-Timing:
+      - gfet4t7; dur=81
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: "{\n   \"results\" : \n   [\n      {\n         \"address_components\"
+        : \n         [\n            {\n               \"long_name\" : \"Rua da Consolação\",\n
+        \              \"short_name\" : \"R. da Consolação\",\n               \"types\"
+        : \n               [\n                  \"route\"\n               ]\n            },\n
+        \           {\n               \"long_name\" : \"São Paulo\",\n               \"short_name\"
+        : \"São Paulo\",\n               \"types\" : \n               [\n                  \"administrative_area_level_2\",\n
+        \                 \"political\"\n               ]\n            },\n            {\n
+        \              \"long_name\" : \"São Paulo\",\n               \"short_name\"
+        : \"SP\",\n               \"types\" : \n               [\n                  \"administrative_area_level_1\",\n
+        \                 \"political\"\n               ]\n            },\n            {\n
+        \              \"long_name\" : \"Brazil\",\n               \"short_name\"
+        : \"BR\",\n               \"types\" : \n               [\n                  \"country\",\n
+        \                 \"political\"\n               ]\n            }\n         ],\n
+        \        \"formatted_address\" : \"R. da Consolação, São Paulo - SP, Brazil\",\n
+        \        \"geometry\" : \n         {\n            \"bounds\" : \n            {\n
+        \              \"northeast\" : \n               {\n                  \"lat\"
+        : -23.5451675,\n                  \"lng\" : -46.64127000000001\n               },\n
+        \              \"southwest\" : \n               {\n                  \"lat\"
+        : -23.5662633,\n                  \"lng\" : -46.67294829999999\n               }\n
+        \           },\n            \"location\" : \n            {\n               \"lat\"
+        : -23.5528373,\n               \"lng\" : -46.6590576\n            },\n            \"location_type\"
+        : \"GEOMETRIC_CENTER\",\n            \"viewport\" : \n            {\n               \"northeast\"
+        : \n               {\n                  \"lat\" : -23.5451675,\n                  \"lng\"
+        : -46.64127000000001\n               },\n               \"southwest\" : \n
+        \              {\n                  \"lat\" : -23.5662633,\n                  \"lng\"
+        : -46.67294829999999\n               }\n            }\n         },\n         \"place_id\"
+        : \"ChIJ_ff1NjNYzpQRsiFbDEZ9Fv0\",\n         \"types\" : \n         [\n            \"route\"\n
+        \        ]\n      }\n   ],\n   \"status\" : \"OK\"\n}"
+  recorded_at: Fri, 30 Aug 2024 02:09:36 GMT
+recorded_with: VCR 6.3.1
