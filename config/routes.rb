@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   scope '/autocomplete' do
     get :zipcode, to: 'autocomplete#zipcode', as: :zipcode
+    get :addresses, to: 'autocomplete#addresses', as: :addresses
     get :pins, to: 'autocomplete#pins', as: :pins
+    get :contacts, to: 'autocomplete#contacts', as: :contact_list
   end
 end

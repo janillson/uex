@@ -4,8 +4,8 @@
 
 import { application } from "./application"
 
-import AddressSearchController from "./address_search_controller"
-application.register("address-search", AddressSearchController)
+import SearchController from "./search_controller"
+application.register("search", SearchController)
 
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)

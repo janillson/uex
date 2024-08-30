@@ -1,3 +1,20 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 @import "rails_bootstrap_forms.css";
+
+.autoComplete_wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.autoCompleteList {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: white;
+  border: 1px solid #ced4da;
+}

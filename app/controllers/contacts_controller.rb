@@ -5,7 +5,7 @@ class ContactsController < ApplicationController
 
   def index
     if params[:query].present?
-      result = Contact.search(account: nil, query: params[:query])
+      result = Contact.search(account: current_account, query: params[:query])
 
       @contacts = result if result.present?
     end

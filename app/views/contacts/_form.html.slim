@@ -1,17 +1,22 @@
-= bootstrap_form_for(contact, data: { turbo_frame: :contacts, turbo_action: :advance, controller: 'mask address-search', address_search_url: zipcode_path }) do |form|
+= bootstrap_form_for(contact, data: { turbo_frame: :contacts, turbo_action: :advance, controller: 'mask search' }) do |form|
   = render "devise/shared/error_messages", resource: contact
 
   = form.text_field :name
   = form.text_field :cpf, data: { mask_type: 'cpf' }
   = form.text_field :phone, data: { mask_type: 'phone' }
   br
-  = form.text_field :zipcode, data: { mask_type: 'zipcode', address_search_target: "zipcodeValue" }
-  = form.text_field :street, data: { address_search_target: "streetValue" }
+
+  .autoComplete_wrapper
+    = form.text_field :zipcode, class: 'autocomplete', data: { mask_type: 'zipcode', search_target: "zipcodeValue", action: 'keyup->search#autocompleteAdrress', url: zipcode_path }
+  .autoComplete_wrapper
+    = form.text_field :street, class: 'autocomplete', data: { search_target: "streetValue", action: 'keyup->search#autocompleteAdrress', url: addresses_path }
   = form.text_field :number
   = form.text_field :complement
-  = form.text_field :neighborhood, data: { address_search_target: "neighborhoodValue" }
-  = form.text_field :city_name, data: { address_search_target: "cityValue" }
-  = form.text_field :state, data: { mask_type: 'uf', address_search_target: "stateValue" }
+  .autoComplete_wrapper
+    = form.text_field :neighborhood, class: 'autocomplete', data: { search_target: "neighborhoodValue", action: 'keyup->search#autocompleteAdrress', url: addresses_path }
+  .autoComplete_wrapper
+    = form.text_field :city_name, class: 'autocomplete', data: { search_target: "cityValue", action: 'keyup->search#autocompleteAdrress', url: addresses_path }
+  = form.text_field :state, data: { mask_type: 'uf', search_target: "stateValue" }
 
   .my-3
     = form.submit

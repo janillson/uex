@@ -15,8 +15,9 @@ h3
       - else
         nav.navbar.bg-body-tertiary
           .container-fluid
-            = form_with url: contacts_path, method: :get, class: "d-flex vw-100", data: { turbo_frame: :contacts, turbo_action: :advance } do |form|
-              = form.text_field :query, value: params[:query], class: "form-control me-2", placeholder: "Search", aria_label: "Search"
+            = form_with url: contacts_path, method: :get, class: "d-flex vw-100", data: { turbo_frame: :contacts, turbo_action: :advance, controller: 'search' } do |form|
+              .autoComplete_wrapper
+                = form.text_field :query, value: params[:query], id: "search", class: "form-control me-2 autocomplete", placeholder: "Search", data: { action: 'keyup->search#autocompleteContact', url: contact_list_path }
               = link_to "Clean", root_path, class: "btn btn-outline-secondary mx-1", data: { turbo_frame: :contacts, turbo_action: :advance } if params.key?(:query)
               = form.submit "Search", class: "btn btn-outline-success"
         .list-group
