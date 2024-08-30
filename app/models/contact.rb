@@ -1,7 +1,7 @@
 class Contact < ApplicationRecord
   belongs_to :account
 
-  validates :name, :cpf, :phone, :street, :neighborhood, :city_name, :state, :zipcode, presence: true
+  validates :name, :cpf, :phone, :street, :number, :neighborhood, :city_name, :state, :zipcode, presence: true
   validates :cpf, uniqueness: { scope: :account_id }
   validates_cpf_format_of :cpf
   validates :phone, phone: true
@@ -10,7 +10,7 @@ class Contact < ApplicationRecord
   before_validation :set_lat_long
 
   def full_address
-    "#{street}, #{number} - #{city_name} - #{state}"
+    "#{street}, #{number} - #{city_name} - #{state}, #{zipcode}"
   end
 
   def cpf_formatted

@@ -47,7 +47,7 @@ class ContactsController < ApplicationController
   private
 
     def set_contacts
-      @contacts = current_account.contacts
+      @contacts = current_account.contacts.order(name: :asc)
     end
 
     def set_contact

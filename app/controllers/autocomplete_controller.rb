@@ -25,4 +25,10 @@ class AutocompleteController < ApplicationController
       json_response({})
     end
   end
+
+  def pins
+    pins = current_account.contacts.pluck(:latitude, :longitude).map { |lat, lng| { lat: lat.to_f, lng: lng.to_f } }
+
+    json_response(pins)
+  end
 end

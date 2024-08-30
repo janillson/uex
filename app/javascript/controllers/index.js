@@ -10,6 +10,9 @@ application.register("address-search", AddressSearchController)
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
 
+import MapController from "./map_controller"
+application.register("map", MapController)
+
 import MaskController from "./mask_controller"
 application.register("mask", MaskController)
 
