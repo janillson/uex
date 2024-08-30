@@ -55,6 +55,6 @@ class ContactsController < ApplicationController
     end
 
     def contact_params
-      params.require(:contact).permit(:name, :cpf, :phone, :street, :number, :complement, :neighborhood, :city_name, :state, :zipcode, :latitude, :longitude)
+      params.require(:contact).permit(:name, :cpf, :phone, :street, :number, :complement, :neighborhood, :city_name, :state, :zipcode)
     end
 end
