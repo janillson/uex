@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   devise_scope :account do
     get :confirm_destroy, to: 'accounts/registrations#confirm_destroy', as: :confirm_destroy_account
+    delete :registration, to: 'accounts/registrations#destroy', as: :destroy_account_registration
   end
 
   resources :contacts, only: %i[index show new create edit update destroy] do
