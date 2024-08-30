@@ -7,7 +7,7 @@ class ContactsController < ApplicationController
     if params[:query].present?
       result = Contact.search(account: current_account, query: params[:query])
 
-      @contacts = result if result.present?
+      @pagy, @contacts = pagy(result) if result.present?
     end
   end
 
@@ -53,7 +53,7 @@ class ContactsController < ApplicationController
   private
 
     def set_contacts
-      @contacts = current_account.contacts.order(name: :asc)
+      @pagy, @contacts = pagy(current_account.contacts.order(name: :asc))
     end
 
     def set_contact

@@ -23,6 +23,9 @@ h3
         .list-group
           = render @contacts
 
+        .mt-3
+          = render 'pagy', pagy: @pagy, resourece: Contact.new, turbo_frame: :contacts
+
 
     - if current_action == "new" || current_action == "edit" || current_action == "create" || current_action == "update"
       .col-md-3.border.p-4.rounded.overflow-auto[style="max-height: 800px;"]

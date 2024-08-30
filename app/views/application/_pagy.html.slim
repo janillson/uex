@@ -1,0 +1,19 @@
+- if @pagy.pages > 1
+  nav.pagy-bootstrap.nav[aria-label="Pages"]
+    ul class="pagination"
+      li.page-item.prev[class="#{'disabled' if @pagy.prev.nil?}"]
+        = link_to polymorphic_path(resourece), params: { page: @pagy.prev }, class: "page-link", data: { turbo_frame:, turbo_action: :advance } do
+          | &lt;
+
+      - @pagy.series.each do |item|
+        - if item.to_i == @pagy.page
+          li.page-item.active
+            a[role="link" class="page-link" aria-current="page" aria-disabled="true"] = item
+        - else
+          li.page-item
+            = link_to polymorphic_path(resourece, page: item), class: "page-link", data: { turbo_frame:, turbo_action: :advance } do
+              = item
+
+      li class="page-item next #{'disabled' if @pagy.next.nil?}"
+        = link_to polymorphic_path(resourece, page: @pagy.next), class: "page-link", data: { turbo_frame:, turbo_action: :advance } do
+          | &gt;
