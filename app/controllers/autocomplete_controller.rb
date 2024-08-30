@@ -27,7 +27,11 @@ class AutocompleteController < ApplicationController
   end
 
   def pins
-    pins = current_account.contacts.pluck(:latitude, :longitude).map { |lat, lng| { lat: lat.to_f, lng: lng.to_f } }
+    query = params[:term].present? && params[:term] != 'null' ? params[:term] : nil
+
+    contacts = query ? Contact.search(account: current_account, query:) : current_account.contacts
+
+    pins = contacts.pluck(:latitude, :longitude).map { |lat, lng| { lat: lat.to_f, lng: lng.to_f } }
 
     json_response(pins)
   end

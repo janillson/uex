@@ -3,7 +3,13 @@ class ContactsController < ApplicationController
   before_action :set_contacts, only: %i[index show new create edit update]
   before_action :set_contact, only: %i[show edit update destroy confirm_destroy]
 
-  def index; end
+  def index
+    if params[:query].present?
+      result = Contact.search(account: nil, query: params[:query])
+
+      @contacts = result if result.present?
+    end
+  end
 
   def show
     render :index

@@ -20,17 +20,19 @@ export default class extends Controller {
 
     timeoutId = setTimeout(async () => {
       const url = this.data.get('url');
-      const response = await fetch(url);
+      const query = this.data.get('query');
+      const response = await fetch(`${url}?term=${query}`);
+
 
       if (!response.ok) {
-        this.addMarkers(defaultLocations)
+        // this.addMarkers(defaultLocations)
         return
       }
 
       const data = await response.json();
 
       if (data.length < 1) {
-        this.addMarkers(defaultLocations)
+        // this.addMarkers(defaultLocations)
         return
       }
 

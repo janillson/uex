@@ -21,6 +21,22 @@ class Contact < ApplicationRecord
     Phonelib.parse(phone)&.local_number
   end
 
+  def self.search(account:, query:)
+    return unless query.present?
+
+    terms = query.split(/,\s| - |\s-\s/) # preserva os espaços em branco e remove os separadores(virgula e hífen)
+
+    search_condition = terms.map do |term| # loop para montar a query, representando o termo de busca
+      fields = %w[name cpf] # campos que serão pesquisados
+        .map { |field| "#{field} ILIKE '%#{term}%'" }.join(" OR ")
+
+      "(#{fields})"
+    end.join(" AND ")
+
+    result = where(search_condition)
+    account ? result.where(account:) : result
+  end
+
   private
 
   def sanitize_data

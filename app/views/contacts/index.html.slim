@@ -3,27 +3,35 @@ h3
   = link_to "New Contact", new_contact_path, class: "btn btn-primary m-3", data: { turbo_frame: :contacts, turbo_action: :advance  }
 
 = turbo_frame_tag :contacts do
+  - current_action = request.params[:action]
+  - current_search = current_action == "show" ? @contact.cpf : params[:query]
   = turbo_stream.replace :flash_messages
     = render "flash_messages"
 
   .row.vh-100
     .col-md-3.overflow-auto[style="max-height: 800px;"]
-      - if @contacts.empty?
+      - if @contacts.empty? && !params.key?(:query)
         p No contacts found
       - else
+        nav.navbar.bg-body-tertiary
+          .container-fluid
+            = form_with url: contacts_path, method: :get, class: "d-flex vw-100", data: { turbo_frame: :contacts, turbo_action: :advance } do |form|
+              = form.text_field :query, value: params[:query], class: "form-control me-2", placeholder: "Search", aria_label: "Search"
+              = link_to "Clean", root_path, class: "btn btn-outline-secondary mx-1", data: { turbo_frame: :contacts, turbo_action: :advance } if params.key?(:query)
+              = form.submit "Search", class: "btn btn-outline-success"
         .list-group
           = render @contacts
 
 
-    - if request.params[:action] == "new" || request.params[:action] == "edit" || request.params[:action] == "create" || request.params[:action] == "update"
+    - if current_action == "new" || current_action == "edit" || current_action == "create" || current_action == "update"
       .col-md-3.border.p-4.rounded.overflow-auto[style="max-height: 800px;"]
         = link_to "", root_path, class: "btn-close float-end", data: { turbo_frame: :contacts, turbo_action: :advance }
         br
         = render "form", contact: @contact || Contact.new
-    - elsif request.params[:action] == "show"
+    - elsif current_action == "show"
       .col-md-3
         = render "show"
 
-    div[class="#{request.params[:action] == 'index' ? 'col-md-9' : 'col-md-6' }" style="max-height: 800px;"]
-      div[data-controller="map" data-map-url=pins_path]
+    div[class="#{current_action == 'index' ? 'col-md-9' : 'col-md-6' }" style="max-height: 800px;"]
+      div[data-controller="map" data-map-url=pins_path data-map-query=current_search]
         div[data-map-target="map" style="height: 800px; width: 100%;"]
